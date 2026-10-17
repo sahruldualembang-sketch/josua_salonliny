@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Liny Salon — layanan hair and beauty dengan suasana nyaman dan sentuhan elegan.">
+  <title>Liny Salon | Hair and Beauty</title>
+  <style>
+    :root{--ink:#201d1b;--muted:#716b66;--paper:#fffdfb;--cream:#f6f0e9;--rose:#b77e72;--line:#e9e0d8;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,253,251,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-size:22px;letter-spacing:3px}
+    .brand img{width:54px;height:54px;object-fit:cover;object-position:center;border-radius:50%;border:1px solid var(--line)}
+    .links{display:flex;gap:27px;align-items:center;font-size:13px;color:#4e4844}
+    .links a:hover{color:var(--rose)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:white;padding:12px 20px;border:1px solid var(--ink);font-size:13px;letter-spacing:.4px;transition:.2s}
+    .nav-cta:hover,.btn:hover{background:var(--rose);border-color:var(--rose)}
+    .menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--ink);cursor:pointer}
+    .hero{padding:62px 0 76px;background:linear-gradient(110deg,#fffdfb 0%,#fffdfb 54%,#f5eee7 54%,#f5eee7 100%)}
+    .hero-grid{display:grid;grid-template-columns:1fr .86fr;align-items:center;gap:70px}
+    .eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--rose);font-size:11px;font-weight:bold;margin-bottom:18px}
+    h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.15}
+    h1{font-size:clamp(42px,5.5vw,70px);letter-spacing:-1.6px;max-width:620px}
+    h1 em{font-weight:400;color:var(--rose)}
+    .hero p{max-width:470px;color:var(--muted);margin:22px 0 28px;font-size:15px}
+    .hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+    .text-link{font-size:13px;border-bottom:1px solid #b8a69a;padding-bottom:4px}
+    .hero-art{position:relative;padding:25px 25px 25px 0}
+    .hero-art:before{content:"";position:absolute;inset:0 0 0 55px;background:#e7d8cc}
+    .hero-logo{position:relative;background:white;padding:24px;box-shadow:0 20px 50px #3d2b1b14}
+    .hero-logo img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain}
+    .hero-note{position:absolute;right:-12px;bottom:4px;background:var(--ink);color:white;padding:14px 18px;font-family:Georgia,serif;font-size:17px;letter-spacing:.4px}
+    section{padding:82px 0}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .section-head h2{font-size:clamp(32px,4vw,46px);margin-bottom:13px}
+    .section-head p{color:var(--muted);font-size:14px}
+    .about{background:white}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}
+    .about-mark{background:var(--cream);padding:40px;text-align:center;border:1px solid var(--line)}
+    .about-mark img{width:100%;max-width:320px;display:block;margin:auto;mix-blend-mode:multiply}
+    .about-copy h2{font-size:clamp(32px,4vw,45px);margin-bottom:20px}
+    .about-copy p{color:var(--muted);margin-bottom:14px;font-size:14px}
+    .features{display:flex;gap:25px;flex-wrap:wrap;margin-top:25px}
+    .feature{border-left:2px solid var(--rose);padding-left:12px;font-size:13px;font-weight:bold}
+    .services{background:var(--cream)}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{background:white;padding:29px 25px;border:1px solid #eee5dd;min-height:210px;transition:transform .2s,box-shadow .2s}
+    .service-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #3b29140c}
+    .service-no{font-family:Georgia,serif;color:var(--rose);font-size:15px;letter-spacing:2px}
+    .service-card h3{font-size:24px;margin:20px 0 10px}
+    .service-card p{font-size:13px;color:var(--muted)}
+    .note{font-size:12px;color:var(--muted);text-align:center;margin-top:22px}
+    .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .visit h2{font-size:clamp(32px,4vw,46px);margin-bottom:17px}
+    .visit p{color:var(--muted);font-size:14px;margin-bottom:22px}
+    .visit-panel{background:var(--cream);padding:32px;border:1px solid var(--line)}
+    .info-row{padding:15px 0;border-bottom:1px solid #dfd3c8}
+    .info-row:last-child{border-bottom:0}
+    .info-row strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+    .info-row span{font-size:14px;color:var(--muted)}
+    .contact{background:#292421;color:white;text-align:center;padding:72px 0}
+    .contact .eyebrow{color:#d8aaa0}
+    .contact h2{font-size:clamp(34px,4.5vw,52px);max-width:700px;margin:0 auto 16px}
+    .contact p{color:#d0c8c2;max-width:530px;margin:0 auto 26px;font-size:14px}
+    .contact .btn{background:white;color:var(--ink);border-color:white}
+    .contact .btn:hover{background:#ead9ce;border-color:#ead9ce}
+    footer{background:#201d1b;color:#bdb4ad;border-top:1px solid #48413c;padding:22px 0;font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:800px){.links{gap:15px}.hero-grid{gap:35px}.about-grid{gap:35px}.service-grid{grid-template-columns:repeat(2,1fr)}.visit-grid{gap:28px}}
+    @media(max-width:640px){.wrap{width:min(100% - 30px,520px)}.nav{min-height:68px}.brand{font-size:18px}.brand img{width:43px;height:43px}.menu-btn{display:block}.links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);padding:18px 22px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.links.open{display:flex}.links a{padding:11px 0}.links .nav-cta{text-align:center;margin-top:8px}.hero{padding:44px 0 58px;background:linear-gradient(180deg,#fffdfb 0%,#fffdfb 58%,#f5eee7 58%,#f5eee7 100%)}.hero-grid{grid-template-columns:1fr;gap:32px}.hero-art{max-width:420px;margin:auto;padding:15px 15px 15px 0}.hero-note{right:-5px}.hero p{font-size:14px}section{padding:62px 0}.about-grid,.visit-grid{grid-template-columns:1fr}.about-mark{padding:20px}.about-mark img{max-width:250px}.about-copy{order:-1}.service-grid{grid-template-columns:1fr}.service-card{min-height:0}.section-head{margin-bottom:30px}.visit-panel{padding:24px}.contact{padding:58px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#beranda" aria-label="Liny Salon beranda"><img src="assets/logo-liny.jpg" alt="Logo Liny Salon"> <span>LINY SALON</span></a>
+      <button class="menu-btn" aria-label="Buka menu" aria-expanded="false" id="menuBtn">☰</button>
+      <nav class="links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a><a href="#tentang">Tentang Kami</a><a href="#layanan">Layanan</a><a href="#kunjungi">Info Salon</a><a class="nav-cta" href="#kontak">Hubungi Kami</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="beranda">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Hair and Beauty</div>
+          <h1>Rawat diri, pancarkan <em>pesonamu.</em></h1>
+          <p>Selamat datang di Liny Salon. Temukan waktu untuk merawat diri dan menikmati pengalaman kecantikan dengan suasana yang nyaman, bersih, dan elegan.</p>
+          <div class="hero-actions"><a class="btn" href="#layanan">Lihat Layanan</a><a class="text-link" href="#tentang">Kenali Liny Salon ↗</a></div>
+        </div>
+        <div class="hero-art"><div class="hero-logo"><img src="assets/logo-liny.jpg" alt="Logo resmi Liny Salon Hair and Beauty"></div><div class="hero-note">Your beauty, your moment.</div></div>
+      </div>
+    </section>
+    <section class="about" id="tentang">
+      <div class="wrap about-grid">
+        <div class="about-mark"><img src="assets/logo-liny.jpg" alt="Logo Liny Salon"></div>
+        <div class="about-copy"><div class="eyebrow">Tentang Kami</div><h2>Kecantikan dimulai dari merawat diri.</h2><p>Liny Salon adalah tempat untuk meluangkan waktu bagi diri sendiri. Kami ingin membantu setiap pelanggan merasa lebih segar, percaya diri, dan nyaman dengan penampilannya.</p><p>Dengan tampilan yang sederhana dan pelayanan yang ramah, Liny Salon menghadirkan pengalaman perawatan rambut dan kecantikan yang menyenangkan.</p><div class="features"><div class="feature">Pelayanan Ramah</div><div class="feature">Suasana Nyaman</div><div class="feature">Perawatan Personal</div></div></div>
+      </div>
+    </section>
+    <section class="services" id="layanan">
+      <div class="wrap"><div class="section-head"><div class="eyebrow">Layanan Kami</div><h2>Perawatan untuk waktumu</h2><p>Pilih perawatan yang sesuai dengan kebutuhanmu. Silakan hubungi salon untuk menanyakan layanan yang tersedia dan informasi harga terbaru.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-no">01 / HAIR</div><h3>Perawatan Rambut</h3><p>Perawatan untuk membantu rambut terasa lebih terawat, sehat, dan mudah ditata.</p></article>
+          <article class="service-card"><div class="service-no">02 / STYLE</div><h3>Potong & Styling</h3><p>Rapikan atau perbarui gaya rambut agar sesuai dengan penampilan dan kepribadianmu.</p></article>
+          <article class="service-card"><div class="service-no">03 / COLOR</div><h3>Pewarnaan Rambut</h3><p>Eksplorasi tampilan rambut dengan pilihan warna yang bisa dikonsultasikan terlebih dahulu.</p></article>
+          <article class="service-card"><div class="service-no">04 / BEAUTY</div><h3>Perawatan Kecantikan</h3><p>Pilihan perawatan kecantikan untuk melengkapi rutinitas merawat diri.</p></article>
+          <article class="service-card"><div class="service-no">05 / CARE</div><h3>Konsultasi Perawatan</h3><p>Ceritakan kebutuhanmu agar tim salon dapat membantu memilih perawatan yang sesuai.</p></article>
+          <article class="service-card"><div class="service-no">06 / YOU</div><h3>Layanan Lainnya</h3><p>Tanyakan kepada kami mengenai layanan lain yang sedang tersedia di Liny Salon.</p></article>
+        </div><p class="note">Catatan: daftar layanan di atas merupakan gambaran kategori. Sesuaikan dengan layanan aktual yang tersedia di salon.</p>
+      </div>
+    </section>
+    <section id="kunjungi">
+      <div class="wrap visit-grid"><div class="visit"><div class="eyebrow">Kunjungi Kami</div><h2>Jadikan perawatan diri bagian dari harimu.</h2><p>Ingin berkunjung atau bertanya sebelum datang? Hubungi Liny Salon untuk memastikan jadwal, ketersediaan layanan, dan membuat janji perawatan.</p><a class="btn" href="#kontak">Informasi Kontak</a></div>
+        <div class="visit-panel"><div class="info-row"><strong>Alamat Salon</strong><span>[Tambahkan alamat lengkap Liny Salon]</span></div><div class="info-row"><strong>Jam Operasional</strong><span>[Tambahkan hari dan jam buka salon]</span></div><div class="info-row"><strong>Telepon / WhatsApp</strong><span>[Tambahkan nomor kontak salon]</span></div><div class="info-row"><strong>Media Sosial</strong><span>[Tambahkan Instagram atau akun resmi salon]</span></div></div>
+      </div>
+    </section>
+    <section class="contact" id="kontak"><div class="wrap"><div class="eyebrow">Hubungi Liny Salon</div><h2>Siap meluangkan waktu untuk dirimu?</h2><p>Hubungi kami untuk menanyakan layanan, harga, atau jadwal kunjungan. Kami menantikan kedatanganmu.</p><a class="btn" href="mailto:kontak@linysalon.example">Hubungi Salon</a></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><span>© <span id="year"></span> Liny Salon — Hair and Beauty</span><span>Elegan, nyaman, dan dekat denganmu.</span></div></footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰'});
+    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
